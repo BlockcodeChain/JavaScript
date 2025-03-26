@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(192, 220, 231);
+}
+
+.button {
+    position: relative;
+    background-color: rgb(95, 95, 184);
+    border-radius: 6px;
+    padding: 15px 22px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    transition: transform 0.1s ease-in-out;
+    box-shadow: 0 5px 10px rgb(57, 57, 148);
+    cursor: pointer;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.button::after,
+.button::before {
+    content: '';
+    left: 50%;
+    top: 80%;
+    transform: translateX(-50%);
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    width: 150%;
+    background-repeat: no-repeat;
+    border: 2px solid red;
+}
+
+.button::before {
+    top: -70%;
+    background-image:
+        radial-gradient(circle, purple 20%, transparent 20%),
+        radial-gradient(circle, transparent 20%, purple 20%, transparent 30%),
+        radial-gradient(circle, purple 20%, transparent 20%),
+        radial-gradient(circle, transparent 10%, purple 15%, transparent 20%),
+        radial-gradient(circle, purple 20%, transparent 20%),
+        radial-gradient(circle, purple 20%, transparent 20%),
+        radial-gradient(circle, purple 20%, transparent 20%),
+        radial-gradient(circle, purple 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 20% 20%, 15% 15%;
+    background-position: 5% 90%, 10% 90%, 30% 54%, 5% 90%, 10% 90%, 35% 54%, 10% 67%, 88% 45%;
+    animation: topBubbles 0.8s ease-in-out forwards;
+}
+
+@keyframes topBubbles {
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 30% 30%, 22% 44%;
+    }
+    100% {
+        background-position: 0% 70%, 0% 90%, 40% 30%, 20% -10%, 30% 20%, 22% -40%, 30% 20%, 22% 12%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.button::after {
+    bottom: -70%;
+}
